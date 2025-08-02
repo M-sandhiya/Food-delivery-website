@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* Tailwind CSS will handle most utility styles, but global styles can go here */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ff9142; /* Tailwind orange-500 */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+input, select {
+  outline: none;
+}
+
+

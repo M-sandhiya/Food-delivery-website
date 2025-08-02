@@ -1,0 +1,304 @@
+.dashboard-container {
+  padding: clamp(1rem, 3vw, 2rem);
+  color: #2c3e50;
+  min-height: 100vh;
+  box-sizing: border-box;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+}
+
+.dashboard-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.dashboard-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: clamp(30px, 8vw, 50px);
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #feca57);
+  border-radius: 2px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 40vw, 300px), 1fr));
+  gap: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-loading {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  text-align: center;
+  margin-top: 2rem;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 5px solid #27ae60;
+  padding: clamp(1rem, 3vw, 1.25rem);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  color: #34495e;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: clamp(1.3rem, 4vw, 1.5rem);
+  font-weight: bold;
+  color: #27ae60;
+  margin: 0;
+}
+
+.top-dishes-section {
+  margin-top: clamp(1.5rem, 4vw, 2rem);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.top-dishes-section h3 {
+  margin-bottom: clamp(0.8rem, 2vw, 1rem);
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.top-dishes-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.top-dishes-section li {
+  background: rgba(244, 246, 248, 0.8);
+  padding: clamp(0.6rem, 2vw, 0.75rem) clamp(0.8rem, 2vw, 1rem);
+  border-radius: 8px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.top-dishes-section li:hover {
+  background: rgba(244, 246, 248, 1);
+  transform: translateX(5px);
+}
+
+.top-dishes-section span {
+  color: #2980b9;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.enhanced-dashboard {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(99,102,241,0.10), 0 2px 8px rgba(99,102,241,0.07);
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+.dashboard-stat-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.08), 0 1.5px 6px rgba(99,102,241,0.07);
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.18s, transform 0.18s;
+  border: 1.5px solid #e0e7ff;
+}
+.dashboard-stat-card:hover {
+  box-shadow: 0 8px 32px rgba(99,102,241,0.13), 0 2px 8px rgba(99,102,241,0.10);
+  transform: translateY(-2px) scale(1.01);
+  border-color: #6366f1;
+}
+.stat-label {
+  font-size: 1.08rem;
+  color: #475569;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #2563eb;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.dashboard-stat-card.accepted .stat-value {
+  color: #2563eb;
+}
+.dashboard-stat-card.preparing .stat-value {
+  color: #f59e42;
+}
+.dashboard-stat-card.ready .stat-value {
+  color: #14b8a6;
+}
+.dashboard-stat-card.delivered .stat-value {
+  color: #475569;
+}
+.dashboard-stat-card.cancelled .stat-value {
+  color: #ef4444;
+}
+.dashboard-stat-card.total .stat-value {
+  color: #6366f1;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  
+  .dashboard-title {
+    text-align: center;
+  }
+  
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .top-dishes-section {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 0.8rem;
+  }
+  
+  .dashboard-title {
+    font-size: 1.3rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .top-dishes-section {
+    padding: 1rem;
+  }
+  
+  .top-dishes-section li {
+    flex-direction: column;
+    gap: 0.3rem;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1400px) {
+  .dashboard-container {
+    padding: 2rem;
+  }
+  
+  .dashboard-cards {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  .top-dishes-section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .enhanced-dashboard {
+    padding: 1rem 0.3rem;
+  }
+  .dashboard-stats-grid {
+    gap: 1rem;
+  }
+  .dashboard-stat-card {
+    padding: 1rem 0.5rem;
+  }
+}
+

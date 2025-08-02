@@ -1,0 +1,41 @@
+.logout-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.85);
+  color: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.logout-overlay.fade-out {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Spinner */
+.spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #00e676;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

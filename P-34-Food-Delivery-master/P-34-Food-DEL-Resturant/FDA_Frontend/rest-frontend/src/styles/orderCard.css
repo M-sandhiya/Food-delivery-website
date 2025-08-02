@@ -1,0 +1,35 @@
+.order-card {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.order-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.order-items {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  background-color: #f8f8f8;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.order-items li {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.status-dropdown {
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}

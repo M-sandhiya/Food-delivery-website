@@ -1,0 +1,194 @@
+/* Main navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  backdrop-filter: blur(12px);
+  padding: 0 2rem;
+  height: 68px;
+  color: white;
+  box-shadow: 0 6px 24px rgba(102, 126, 234, 0.12), 0 2px 8px rgba(0,0,0,0.08);
+  border-bottom: 1.5px solid rgba(255,255,255,0.18);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Left section: logo + hamburger */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Hamburger button (☰) */
+.hamburger {
+  width: 34px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.08);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.hamburger:hover {
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+  transform: scale(1.05);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo-img {
+  height: 44px;
+  width: 44px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.12);
+  border: 2px solid rgba(255,255,255,0.18);
+}
+
+.navbar-logo-text {
+  font-size: 1.7rem;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(102, 126, 234, 0.18);
+  transition: color 0.3s;
+}
+
+.navbar-logo-text:hover {
+  color: #feca57;
+}
+
+.hamburger span {
+  display: block;
+  height: 3.5px;
+  width: 100%;
+  background: linear-gradient(90deg, #fff 60%, #feca57 100%);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(.4,2,.3,1), background 0.3s;
+}
+
+/* Hamburger active state animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-24px);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Logo text */
+.navbar-logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right section: logout */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Logout button */
+.logout-btn {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: none;
+  padding: 0.7rem 2.5rem;
+  border-radius: 40px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.12);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.logout-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.logout-btn:hover::before {
+  left: 100%;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  box-shadow: 0 6px 24px rgba(231, 76, 60, 0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Responsive design */
+@media screen and (max-width: 900px) {
+  .navbar {
+    padding: 0 1rem;
+    height: 60px;
+  }
+  .navbar-logo-text {
+    font-size: 1.2rem;
+  }
+  .navbar-logo-img {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .navbar-logo {
+    font-size: 1rem;
+  }
+  .logout-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0 0.5rem;
+    height: 54px;
+  }
+  .navbar-logo-text {
+    font-size: 1rem;
+  }
+  .logout-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}

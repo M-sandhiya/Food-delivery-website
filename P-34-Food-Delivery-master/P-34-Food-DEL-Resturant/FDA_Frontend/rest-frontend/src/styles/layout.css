@@ -1,0 +1,92 @@
+/* layout.css */
+
+/* Global full height reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Container that holds everything */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Top Navbar */
+.navbar {
+  height: 60px;
+  width: 100%;
+  background-color: #243447;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+/* Body section below navbar */
+.app-body {
+  display: flex;
+  flex: 1;
+  background-color: #f9f9f9;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+/* Sidebar default (open) */
+.sidebar {
+  width: 220px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px 10px;
+  height: calc(100vh - 60px);
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  transform: translateX(0);
+  opacity: 1;
+  position: relative;
+  z-index: 100;
+}
+
+/* Sidebar when closed */
+.sidebar.closed {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* Main content area (scrolls only this section) */
+.app-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* Responsive Sidebar (for smaller screens) */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    z-index: 100;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+  }
+
+  .sidebar.closed {
+    left: -100%;
+  }
+
+  .app-content {
+    padding: 15px;
+  }
+}

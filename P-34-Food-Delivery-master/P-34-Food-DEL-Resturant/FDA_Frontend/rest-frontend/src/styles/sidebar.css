@@ -1,0 +1,113 @@
+/* Stylish Sidebar */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  backdrop-filter: blur(14px);
+  border-right: 2px solid rgba(255,255,255,0.18);
+  box-shadow: 4px 0 24px rgba(102, 126, 234, 0.10), 0 2px 8px rgba(0,0,0,0.08);
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  transition: transform 0.35s cubic-bezier(.4,2,.3,1), box-shadow 0.3s, background 0.3s;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  box-shadow: 8px 0 32px rgba(102, 126, 234, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 32px 0 20px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebar-menu-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 0px;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 26px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-left: 5px solid transparent;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.04);
+  transition: all 0.22s cubic-bezier(.4,2,.3,1);
+  position: relative;
+}
+
+.sidebar-menu a:hover {
+  background: linear-gradient(90deg, #feca57 0%, #667eea 100%);
+  color: #2c3e50;
+  border-left: 5px solid #27ae60;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.10);
+  transform: translateX(4px) scale(1.03);
+}
+
+.sidebar-menu .active-link {
+  background: linear-gradient(90deg, #eafaf1 60%, #feca57 100%);
+  border-left: 5px solid #27ae60;
+  color: #27ae60;
+  box-shadow: 0 4px 16px rgba(39, 174, 96, 0.10);
+  font-weight: 700;
+  transform: translateX(4px) scale(1.04);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    z-index: 1000;
+    transition: transform 0.35s cubic-bezier(.4,2,.3,1), box-shadow 0.3s, background 0.3s;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.12);
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-menu {
+    padding: 24px 0 10px 0;
+    gap: 12px;
+  }
+
+  .sidebar-menu-group {
+    gap: 7px;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-menu a {
+    padding: 12px 18px;
+    font-size: 0.98rem;
+    border-radius: 8px;
+  }
+}
